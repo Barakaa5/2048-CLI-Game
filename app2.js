@@ -6,49 +6,7 @@ function isWon() {
   }
   return false;
 }
-function canMove(arry2048) {
-  function copyMatrix(array) {
-    var newArray = [];
-    for (var i = 0; i < array.length; i++) {
-      newArray[i] = array[i].slice();
-    }
-    return newArray;
-  }
-  function isSameMatrix(array1, array2) {
-    for (let i = 0; i < array1.length; i++) {
-      for (let j = 0; j < array1[i].length; j++) {
-        if (array1[i][j] != array2[i][j]) return false;
-      }
-    }
-    return true;
-  }
-  let checkArray = copyMatrix(arry2048);
-  moveLogic("right");
-  if (isSameMatrix(checkArray, arry2048)) {
-    arry2048 = copyMatrix(checkArray);
-    return false;
-  }
-  arry2048 = copyMatrix(checkArray);
-  moveLogic("left");
-  if (isSameMatrix(checkArray, arry2048)) {
-    arry2048 = copyMatrix(checkArray);
-    return false;
-  }
-  arry2048 = copyMatrix(checkArray);
-  moveLogic("down");
-  if (isSameMatrix(checkArray, arry2048)) {
-    arry2048 = copyMatrix(checkArray);
-    return false;
-  }
-  arry2048 = copyMatrix(checkArray);
 
-  moveLogic("up");
-  if (isSameMatrix(checkArray, arry2048)) {
-    arry2048 = copyMatrix(checkArray);
-    return false;
-  }
-  arry2048 = copyMatrix(checkArray);
-}
 function isLost() {
   for (let i = 0; i < arry2048.length; i++) {
     for (let j = 0; j < arry2048[i].length; j++) {
@@ -166,8 +124,6 @@ let arry2048 = [
   [0, 0, 0, 0],
   [0, 0, 0, 0],
 ];
-
-canMove(arry2048);
 
 generateNewNumber();
 generateNewNumber();
